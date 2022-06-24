@@ -32,3 +32,9 @@ const evenMoreTitles = ['The Conscious Mind', ...moreTitles]
 console.log(evenMoreTitles)
 
 //복사하기
+const toCopy = ['Moby Dick', 'White Teeth'];
+const copied = toCopy.slice();
+const moreCopies = ['Moby Dick', 'White Teeth'];
+const moreCopied = [...moreCopies];
+
+console.log(copied)
