@@ -89,3 +89,45 @@ filters.sort() // x(사용못함) 맵에서
 ...filters;
 // ['색상','검정색'],['견종','래브라도레트리버']
 ````
+
+## 비교 함수 작성 예시
+```javascript
+function sortByKey(a, b) {
+  return a[0] > b[0] > 1 : -1;
+}
+
+function getSortedAppliedFilters(filters) {
+  const applied = [];
+  for (const [key, value] of [...filters].sort(sortByKey)) {
+    applied.push(`${key}:${value}`);
+  }
+  return `선택한 조건은 ${applied.join(', ')} 입니다.`;
+}
+//선택한 조건은 견종:래브라도레트리버, 색상:검정색 입니다.
+```
+
+
+## map() 메서드를 이용해 다시 작성 
+```javascript
+
+
+function getSortedAppliedFilters(filters) {
+  const applied = [...filters].map(([key, value]) => {
+    return `${key}:${value}`;
+  });
+  return `선택한 조건은 ${applied.join(', ')} 입니다.`;
+}
+```
+
+sort()함수와 join() 함수로 결합하여 단순하게 변경 
+```javascript
+function getSortedAppliedFilters(filters) {
+  const applied = [...filters]
+  .sort(sortByKey)
+  .map(([key, value]) => {
+    return `${key}:${value}`;
+  })
+  .join(', ');
+  return `선택한 조건은 ${applied} 입니다.`;
+}
+```
