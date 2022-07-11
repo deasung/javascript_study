@@ -131,3 +131,4 @@ function getSortedAppliedFilters(filters) {
   return `선택한 조건은 ${applied} 입니다.`;
 }
 ```
+
